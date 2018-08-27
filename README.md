@@ -51,7 +51,7 @@ artist.save                                       # slug still = ace-of-base
 
 artist = Artist.create(title: "Ace of Base")      # slug = ace-of-base
 artist.title = "ABBA"
-artist.title_slug = nil
+artist.slug = nil
 artist.save                                       # slug = abba
 ```
 
