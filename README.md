@@ -22,13 +22,13 @@ Or install it yourself as:
 
 Include Slugify in the model file you would would like to use it.
 
-```
+```ruby
 include Slugify
 ```
 
 After you've included it, specify which attribute should trigger the slugification:
 
-```
+```ruby
 slugify :title
 ```
 
@@ -36,7 +36,7 @@ This will slugify the content of the source attribute `:title` and store the res
 
 By default, the target attribute is `:slug`. It is however possible to explicitly specify the target attribute:
 
-```
+```ruby
 slugify :title, as: :some_custom_slug_field
 ```
 
@@ -44,7 +44,7 @@ This will instead store the slugified source value to `:some_custom_slug_field`.
 
 By default, a slugified value is stored when the target attribute is empty. That means that it by default stores a value when an object is first created, or when the target attribute is cleared and the object then saved:
 
-```
+```ruby
 artist = Artist.create(name: "Ace of Base")       # slug = ace-of-base
 artist.name = "ABBA"
 artist.save                                       # slug still = ace-of-base
@@ -57,14 +57,14 @@ artist.save                                       # slug = abba
 
 This default behavior is chosen in order to maintain permalinks and not break bookmarks. It is possible though to specify if you want the slug to always stay in sync with the source attribute:
 
-```
+```ruby
 slugify :title, when: :changed
 slugify :title, as: :title_slug, when: :changed
 ```
 
 That gives this behavior: 
 
-```
+```ruby
 artist = Artist.create(name: "Ace of Base")       # slug = ace-of-base
 artist.title = "ABBA"
 artist.save                                       # slug = abba
