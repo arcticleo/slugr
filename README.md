@@ -36,7 +36,7 @@ After you've included it, specify which attribute should trigger the slugificati
 slugify :title
 ```
 
-This will slugify the content of the source attribute `:title` and store the result in the target attribute `:title_slug`. 
+This will slugify the content of the source attribute `:title` and store the result in the target attribute `:slug`. 
 
 ### Explicitly specify target attribute
 
