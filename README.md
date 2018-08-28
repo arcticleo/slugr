@@ -38,7 +38,7 @@ slugify :title
 
 This will slugify the content of the source attribute `:title` and store the result in the target attribute `:slug`. 
 
-Note that Slugify does not provide any migrations. It assumes the target attribute to be there, and it's your responsibility to make sure it is.
+Note that Slugify _does not_ provide migrations. It assumes that the target attribute is there, and it's your responsibility to make sure it is.
 
 ### Explicitly specify target attribute
 
