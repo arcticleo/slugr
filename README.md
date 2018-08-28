@@ -50,7 +50,7 @@ This will instead store the slugified `:title` value to `:some_custom_slug_field
 
 ### Modifying slugify behavior
 
-By default, a slugified value is stored when the target attribute is blank. That means that it by default stores a value when an object is first created, or when the target attribute is cleared and the object then saved:
+By default, a slugified value is stored when the target attribute is blank. That means that it by default stores a value when an object is first created, or when the target attribute is cleared and the object is then saved:
 
 ```ruby
 artist = Artist.create(name: "Ace of Base")       # slug: "ace-of-base"
