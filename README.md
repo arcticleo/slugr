@@ -81,6 +81,9 @@ artist.update(name: "ABBA")                       # slug: "abba"
 class Event < ApplicationRecord
   include Slugify
   slugify :title, as: :permalink, when: :changed
+
+  belongs_to :festival
+  validates :permalink, uniqueness: { scope: :festival }
 end
 ```
 
