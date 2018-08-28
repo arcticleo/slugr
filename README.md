@@ -89,7 +89,7 @@ end
 Slugify will do its best to normalize diacritics (accented characters) to its non accented ASCII equivalent:
 
 ```ruby
-artist = Artist.create(name: "Mötley Crüe")       # slug = motley-crue
+artist = Artist.create(name: "Mötley Crüe")       # slug: "motley-crue"
 ```
 
 ## Development
