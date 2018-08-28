@@ -20,11 +20,15 @@ Or install it yourself as:
 
 ## Usage
 
+### Setup
+
 Include Slugify in the model file you would would like to use it.
 
 ```ruby
 include Slugify
 ```
+
+### Basic usage
 
 After you've included it, specify which attribute should trigger the slugification:
 
@@ -34,6 +38,8 @@ slugify :title
 
 This will slugify the content of the source attribute `:title` and store the result in the target attribute `:title_slug`. 
 
+### Explicitly specify target attribute
+
 By default, the target attribute is `:slug`. It is however possible to explicitly specify the target attribute:
 
 ```ruby
@@ -42,17 +48,17 @@ slugify :title, as: :some_custom_slug_field
 
 This will instead store the slugified source value to `:some_custom_slug_field`.
 
+### Modifying slugify behavior
+
 By default, a slugified value is stored when the target attribute is empty. That means that it by default stores a value when an object is first created, or when the target attribute is cleared and the object then saved:
 
 ```ruby
-artist = Artist.create(name: "Ace of Base")       # slug = ace-of-base
-artist.name = "ABBA"
-artist.save                                       # slug still = ace-of-base
+artist = Artist.create(name: "Ace of Base")       # slug: "ace-of-base"
+artist.update(name: "ABBA")                       # slug: "ace-of-base" (still)
 
-artist = Artist.create(title: "Ace of Base")      # slug = ace-of-base
-artist.title = "ABBA"
-artist.slug = nil
-artist.save                                       # slug = abba
+artist = Artist.create(name: "Ace of Base")       # slug: "ace-of-base"
+artist.attributes = {name: "ABBA", slug: nil}
+artist.save                                       # slug: "abba"
 ```
 
 This default behavior is chosen in order to maintain permalinks and not break bookmarks. It is possible though to specify if you want the slug to always stay in sync with the source attribute:
@@ -65,9 +71,8 @@ slugify :title, as: :title_slug, when: :changed
 That gives this behavior: 
 
 ```ruby
-artist = Artist.create(name: "Ace of Base")       # slug = ace-of-base
-artist.title = "ABBA"
-artist.save                                       # slug = abba
+artist = Artist.create(name: "Ace of Base")       # slug: "ace-of-base"
+artist.update(name: "ABBA")                       # slug: "abba"
 ```
 
 ### Complete example
@@ -81,7 +86,7 @@ end
 
 ### Special characters
 
-Slugify will do its best to translate diacritics (accented characters) to its non accented ASCII equivalent:
+Slugify will do its best to normalize diacritics (accented characters) to its non accented ASCII equivalent:
 
 ```ruby
 artist = Artist.create(name: "Mötley Crüe")       # slug = motley-crue
