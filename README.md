@@ -46,7 +46,7 @@ By default, the target attribute is `:slug`. It is however possible to explicitl
 slugify :title, as: :some_custom_slug_field
 ```
 
-This will instead store the slugified source value to `:some_custom_slug_field`.
+This will instead store the slugified `:title` value to `:some_custom_slug_field`.
 
 ### Modifying slugify behavior
 
