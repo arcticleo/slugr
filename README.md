@@ -61,7 +61,7 @@ artist.attributes = {name: "ABBA", slug: nil}
 artist.save                                       # slug: "abba"
 ```
 
-This default behavior is chosen in order to maintain permalinks and not break bookmarks. It is possible though to specify if you want the slug to always stay in sync with the source attribute:
+This default behavior is chosen in order to maintain permalinks and not break bookmarks. It is possible though to specify that the slug should always stay in sync with the source attribute:
 
 ```ruby
 slugify :title, when: :changed
