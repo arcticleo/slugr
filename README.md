@@ -1,6 +1,6 @@
 # Slugify
 
-Slugify is a gem to automatically create ActiveRecord model slugs for use in permalinks based on a title, name, headline, or some other descriptive string field.
+Slugify is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other descriptive string field.
 
 ## Installation
 
