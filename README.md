@@ -1,13 +1,13 @@
-# Slugify
+# Slugr
 
-Slugify is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other unique and descriptive string field.
+Slugr is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other unique and descriptive string field.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'slugify'
+gem 'slugr'
 ```
 
 And then execute:
@@ -16,16 +16,16 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install slugify
+    $ gem install slugr
 
 ## Usage
 
 ### Setup
 
-Include Slugify in the model file you would would like to use it.
+Include Slugr in the model file you would would like to use it.
 
 ```ruby
-include Slugify
+include Slugr
 ```
 
 ### Basic usage
@@ -38,7 +38,7 @@ slugify :name       # or :title, :headline, or...
 
 This will slugify the content of the source attribute `:title` and store the result in the target attribute `:slug`. 
 
-Note that Slugify _does not_ provide migrations. It assumes that the target attribute is there, and it's your responsibility to make sure it is.
+Note that Slugr _does not_ provide migrations. It assumes that the target attribute is there, and it's your responsibility to make sure it is.
 
 ### Explicitly specify target attribute
 
@@ -50,7 +50,7 @@ slugify :name, as: :some_custom_slug_field
 
 This will instead store the slugified `:title` value to `:some_custom_slug_field`.
 
-### Modifying Slugify behavior
+### Modifying Slugr behavior
 
 By default, a slugified value is stored when the target attribute is blank. That means that it by default stores a value when an object is first created, or when the target attribute is cleared and the object is then saved:
 
@@ -67,7 +67,7 @@ This default behavior is chosen in order to maintain permalinks and not break bo
 
 ```ruby
 slugify :name, when: :changed
-slugify :name, as: :title_slug, when: :changed
+slugify :name, as: :some_name_slug, when: :changed
 ```
 
 That gives this behavior: 
@@ -81,7 +81,7 @@ artist.update(name: "ABBA")                       # slug: "abba"
 
 ```ruby
 class Event < ApplicationRecord
-  include Slugify
+  include Slugr
   slugify :title, as: :permalink, when: :changed
 
   belongs_to :festival
@@ -91,7 +91,7 @@ end
 
 ### Special characters
 
-Slugify will do its best to normalize diacritics (accented characters) to its non accented ASCII equivalent:
+Slugr will do its best to normalize diacritics (accented characters) to its non accented ASCII equivalent:
 
 ```ruby
 artist = Artist.create(name: "Mötley Crüe")       # slug: "motley-crue"
@@ -105,7 +105,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/arcticleo/slugify. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/arcticleo/slugr. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -113,4 +113,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Slugify project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/arcticleo/slugify/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Slugr project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/arcticleo/slugr/blob/master/CODE_OF_CONDUCT.md).

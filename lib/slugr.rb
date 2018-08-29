@@ -1,6 +1,6 @@
-require "slugify/version"
+require "slugr/version"
 
-module Slugify
+module Slugr
 
   def self.included(base)
     base.extend(ClassMethods)

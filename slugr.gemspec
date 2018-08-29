@@ -1,17 +1,16 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "slugify/version"
+require "slugr/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "slugify"
-  spec.version       = Slugify::VERSION
+  spec.name          = "slugr"
+  spec.version       = Slugr::VERSION
   spec.authors       = ["Michael Edlund"]
   spec.email         = ["medlund@mac.com"]
 
   spec.summary       = %q{Smooth cruisin' permalink slugs for ActiveRecord objects.}
-  spec.description   = %q{Slugify is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other unique and descriptive string field.}
-  spec.homepage      = "https://github.com/arcticleo/slugify"
+  spec.description   = %q{Slugr is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other unique and descriptive string field.}
+  spec.homepage      = "https://github.com/arcticleo/slugr"
   spec.license       = "MIT"
 
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do

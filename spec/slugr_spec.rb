@@ -1,9 +1,9 @@
 require "spec_helper"
 
-RSpec.describe Slugify do
+RSpec.describe Slugr do
 
   it "has a version number" do
-    expect(Slugify::VERSION).not_to be nil
+    expect(Slugr::VERSION).not_to be nil
   end
 
   it "Returns an instance of Artist" do
@@ -83,16 +83,3 @@ RSpec.describe Slugify do
   end
 
 end
-
-
-#it "Realogy::Listing without entity_id is invalid" do
-#  expect(Realogy::Listing.new(last_update_on: DateTime.now).valid?).to be_falsey
-#end
-
-#it "Realogy::Listing without last_update_on is invalid" do
-#  expect(Realogy::Listing.new(entity_id: "0123456789").valid?).to be_falsey
-#end
-
-#it "Realogy::Listing with both entity_id and last_update_on is valid" do
-#  expect(Realogy::Listing.new(entity_id: "0123456789", last_update_on: DateTime.now).valid?).to be_truthy
-#end
