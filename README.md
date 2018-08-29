@@ -33,7 +33,7 @@ include Slugify
 After you've included it, specify which attribute should trigger the slugification:
 
 ```ruby
-slugify :title
+slugify :name       # or :title, :headline, or... 
 ```
 
 This will slugify the content of the source attribute `:title` and store the result in the target attribute `:slug`. 
@@ -45,7 +45,7 @@ Note that Slugify _does not_ provide migrations. It assumes that the target attr
 By default, the target attribute is `:slug`. It is however possible to explicitly specify the target attribute:
 
 ```ruby
-slugify :title, as: :some_custom_slug_field
+slugify :name, as: :some_custom_slug_field
 ```
 
 This will instead store the slugified `:title` value to `:some_custom_slug_field`.
@@ -66,8 +66,8 @@ artist.save                                       # slug: "abba"
 This default behavior is chosen in order to maintain permalinks and not break bookmarks. It is possible though to specify that the slug should always stay in sync with the source attribute:
 
 ```ruby
-slugify :title, when: :changed
-slugify :title, as: :title_slug, when: :changed
+slugify :name, when: :changed
+slugify :name, as: :title_slug, when: :changed
 ```
 
 That gives this behavior: 
