@@ -1,6 +1,6 @@
 # Slugr
 
-Slugr is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other unique and descriptive string field.
+Slugr is a gem to automatically create ActiveRecord object slugs for use in permalinks based on a title, name, headline, or some other unique and descriptive string field. It also provides a slug convenience method to the String class.
 
 ## Installation
 
@@ -95,6 +95,15 @@ Slugr will do its best to normalize diacritics (accented characters) to its non 
 
 ```ruby
 artist = Artist.create(name: "Mötley Crüe")       # slug: "motley-crue"
+```
+
+### String extension
+
+Slugr extends the String class with a slug method.
+
+```ruby
+> "Côte d'Ivoire".slug
+ => "cote-divoire"
 ```
 
 ## Development
